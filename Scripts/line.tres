@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://v27jtucnjeeq"]
+[gd_resource type="VisualShader" load_steps=14 format=3 uid="uid://jx1yht734rmc"]
 
 [sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_xww2v"]
 parameter_name = "MinLineThikness"
@@ -47,98 +47,10 @@ operator = 3
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float XShiftAmplitude;
-uniform vec2 MinLineThikness = vec2(0.000000, 300.000000);
-uniform float MaxThikness;
 
 
-
-
-// 3D Noise with friendly permission by Inigo Quilez
-vec3 hash_noise_range( vec3 p ) {
-	p *= mat3(vec3(127.1, 311.7, -53.7), vec3(269.5, 183.3, 77.1), vec3(-301.7, 27.3, 215.3));
-	return 2.0 * fract(fract(p)*4375.55) -1.;
-}
-
-
-void vertex() {
-// Input:2
-	vec2 n_out2p0 = VERTEX;
-
-
-// Input:5
-	int n_out5p0 = VERTEX_ID;
-
-
-// FloatOp:7
-	float n_in7p1 = 2.00000;
-	float n_out7p0 = float(n_out5p0) / n_in7p1;
-
-
-// IntOp:8
-	int n_in8p1 = 2;
-	int n_out8p0 = n_out5p0 / n_in8p1;
-
-
-// FloatParameter:17
-	float n_out17p0 = XShiftAmplitude;
-
-
-// FloatFunc:18
-	float n_out18p0 = -(n_out17p0);
-
-
-// RandomRange:19
-	vec3 n_in19p0 = vec3(1.00000, 1.00000, 1.00000);
-	float n_out19p0 = mix(n_out18p0, n_out17p0, hash_noise_range(n_in19p0).x);
-
-
-// Vector2Parameter:10
-	vec2 n_out10p0 = MinLineThikness;
-
-
-// FloatParameter:12
-	float n_out12p0 = MaxThikness;
-
-
-// RandomRange:15
-	vec3 n_in15p0 = vec3(1.00000, 1.00000, 1.00000);
-	float n_out15p0 = mix(n_out10p0.x, n_out12p0, hash_noise_range(n_in15p0).x);
-
-
-// VectorCompose:16
-	vec2 n_out16p0 = vec2(n_out19p0, n_out15p0);
-
-
-	vec3 n_out6p0;
-// If:6
-	float n_in6p2 = 0.00001;
-	vec3 n_in6p3 = vec3(0.00000, 0.00000, 0.00000);
-	if(abs(n_out7p0 - float(n_out8p0)) < n_in6p2)
-	{
-		n_out6p0 = n_in6p3;
-	}
-	else if(n_out7p0 < float(n_out8p0))
-	{
-		n_out6p0 = vec3(n_out16p0, 0.0);
-	}
-	else
-	{
-		n_out6p0 = vec3(n_out16p0, 0.0);
-	}
-
-
-// VectorOp:4
-	vec2 n_out4p0 = n_out2p0 + vec2(n_out6p0.xy);
-
-
-// Output:0
-	VERTEX = n_out4p0;
-
-
-}
 "
-graph_offset = Vector2(-170.032, -101.336)
+graph_offset = Vector2(195.009, 307.058)
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(1260, 200)
@@ -168,5 +80,5 @@ nodes/vertex/18/node = SubResource("VisualShaderNodeFloatFunc_50rlq")
 nodes/vertex/18/position = Vector2(380, 1100)
 nodes/vertex/19/node = SubResource("VisualShaderNodeRandomRange_xuk8d")
 nodes/vertex/19/position = Vector2(560, 1120)
-nodes/vertex/connections = PackedInt32Array(4, 0, 0, 0, 2, 0, 4, 0, 5, 0, 7, 0, 5, 0, 8, 0, 7, 0, 6, 0, 8, 0, 6, 1, 6, 0, 4, 1, 12, 0, 15, 2, 10, 0, 15, 1, 15, 0, 16, 1, 17, 0, 18, 0, 18, 0, 19, 1, 17, 0, 19, 2, 19, 0, 16, 0, 16, 0, 6, 4, 16, 0, 6, 5)
+nodes/vertex/connections = PackedInt32Array(7, 0, 6, 0, 8, 0, 6, 1, 6, 0, 4, 1, 12, 0, 15, 2, 10, 0, 15, 1, 15, 0, 16, 1, 17, 0, 18, 0, 18, 0, 19, 1, 17, 0, 19, 2, 19, 0, 16, 0, 16, 0, 6, 4, 16, 0, 6, 5)
 nodes/fragment/0/position = Vector2(1260, 80)

@@ -66,7 +66,7 @@ func _ready():
 	#sloper.spawn_at_point(main_house_prefab, village, main_house_pos, rs.get_rnd_float(0, 1))
 
 func _process(delta):
-	if player.global_position.x > ground_line.get_point_position(ground_line.points.size()-1).x - 200:
+	if player.global_position.x > ground_line.get_point_position(ground_line.points.size()-1).x - 2000:
 		if ground_line.points.size() % 2 == 1:
 			create_next_point(ground_line.get_point_position(ground_line.points.size()-1) + Vector2(line_section_length, rs.get_rnd_float(-section_y_change_amplitude, section_y_change_amplitude)), ground_line.get_point_position(ground_line.points.size()-1))
 		else:

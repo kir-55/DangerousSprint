@@ -42,7 +42,7 @@ func _process(delta):
 				if point == loaded_segment:
 					already_loaded = true
 					break
-			if !already_loaded and point > -1:
+			if !already_loaded and point > -1 and point < line.points.size():
 				spawn_decoration(point)
 				loaded_segments.append(point)
 		
