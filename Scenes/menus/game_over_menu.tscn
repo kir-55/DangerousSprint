@@ -34,7 +34,7 @@ gradient = SubResource("Gradient_aqng2")
 texture = SubResource("GradientTexture2D_3tw24")
 modulate_color = Color(0.317352, 0.426786, 0.752292, 1)
 
-[node name="GameOverMenu" type="Control"]
+[node name="GameOverMenu" type="Control" node_paths=PackedStringArray("last_score_label", "best_score_label")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,6 +46,8 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 script = ExtResource("1_yislu")
+last_score_label = NodePath("Panel/MarginContainer/VBoxContainer/Last Score")
+best_score_label = NodePath("Panel/MarginContainer/VBoxContainer/Best Score")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -83,6 +85,23 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "PRZEGRAŁEŚ"
 horizontal_alignment = 1
+
+[node name="Margin3" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Last Score" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ostatni wynik: "
+
+[node name="Best Score" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Najlepszy wynik:"
 
 [node name="Margin2" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

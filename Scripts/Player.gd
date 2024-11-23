@@ -45,8 +45,8 @@ func _physics_process(delta: float) -> void:
 	# Set horizontal movement speed
 	velocity.x = direction.x * SPEED
 	
-	score = global_position.x - start_x
-	score_label.set_text(str(abs(score)))
+	score = abs(floori(global_position.x) - floori(start_x)) / 12
+	score_label.set_text(str(score))
 
 	# Move the character
 	move_and_slide()
