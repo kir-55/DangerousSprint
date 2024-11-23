@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bva6jjs3q5tws"]
+[gd_scene load_steps=29 format=3 uid="uid://bva6jjs3q5tws"]
 
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="1_38dti"]
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_g3w6i"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="10_xua8x"]
 [ext_resource type="PackedScene" uid="uid://cg47bhbbhmphx" path="res://Scenes/drone_city.tscn" id="11_4ypa3"]
 [ext_resource type="PackedScene" uid="uid://r1f33hjc7aw7" path="res://Scenes/traffic_lights_city.tscn" id="12_f37ki"]
+[ext_resource type="PackedScene" uid="uid://hqspj08hycbj" path="res://Scenes/house1_city.tscn" id="13_dqrb1"]
+[ext_resource type="PackedScene" uid="uid://cd4pgi5mckdsk" path="res://Scenes/house2_city.tscn" id="14_1d5qc"]
+[ext_resource type="PackedScene" uid="uid://cy3ygjy30f1t2" path="res://Scenes/house3_city.tscn" id="15_l43rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
 size = Vector2(64, 64)
@@ -78,6 +81,36 @@ prefab = ExtResource("12_f37ki")
 spawn_on_center = true
 initial_chance = 100
 chance_to_spawn = 13.0
+chance_multiplyer = 1
+min_scale = 0.0
+max_scale = 0.0
+
+[sub_resource type="Resource" id="Resource_o104x"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("13_dqrb1")
+spawn_on_center = true
+initial_chance = 100
+chance_to_spawn = 33.0
+chance_multiplyer = 1
+min_scale = 0.0
+max_scale = 0.0
+
+[sub_resource type="Resource" id="Resource_px5pj"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("14_1d5qc")
+spawn_on_center = true
+initial_chance = 100
+chance_to_spawn = 33.0
+chance_multiplyer = 1
+min_scale = 0.0
+max_scale = 0.0
+
+[sub_resource type="Resource" id="Resource_blmxp"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("15_l43rq")
+spawn_on_center = true
+initial_chance = 100
+chance_to_spawn = 10.0
 chance_multiplyer = 1
 min_scale = 0.0
 max_scale = 0.0
@@ -152,6 +185,7 @@ default_color = Color(0.395763, 0.419923, 0.400711, 1)
 [node name="StaticBody2D" type="StaticBody2D" parent="TerrainGenerator/Line2D2"]
 
 [node name="DecorationSpawner" type="Node2D" parent="TerrainGenerator" node_paths=PackedStringArray("rs", "sloper", "player", "line", "terrain_generator")]
+scale = Vector2(1.10038, 1.15793)
 script = ExtResource("2_mltma")
 load_radius = 3
 max_radius = 10
@@ -160,7 +194,7 @@ sloper = NodePath("../Sloper")
 player = NodePath("../../Player")
 line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
-decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_cnwvw"), SubResource("Resource_yakbk"), SubResource("Resource_ydy5g"), SubResource("Resource_g4ddf")])
+decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_cnwvw"), SubResource("Resource_yakbk"), SubResource("Resource_ydy5g"), SubResource("Resource_g4ddf"), SubResource("Resource_o104x"), SubResource("Resource_px5pj"), SubResource("Resource_blmxp")])
 
 [node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
 wait_time = 30.0
