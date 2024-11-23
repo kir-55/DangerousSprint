@@ -14,6 +14,15 @@ config/name="DangerousSprint"
 run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
+[autoload]
+
+GlobalVariables="*res://Scripts/global_variables.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [input]
 
 up={

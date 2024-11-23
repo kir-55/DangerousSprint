@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvkqwwgephkuk"]
+[gd_scene load_steps=17 format=3 uid="uid://cvkqwwgephkuk"]
 
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_qxeh0"]
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="2_emgq0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/sloper.gd" id="7_u7w05"]
 [ext_resource type="Shader" uid="uid://v27jtucnjeeq" path="res://line.tres" id="8_8kpwf"]
 [ext_resource type="Script" path="res://Scripts/decoration_spawner.gd" id="9_0neal"]
+[ext_resource type="Script" path="res://Scenes/change_scene.gd" id="10_dwjq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
 size = Vector2(64, 64)
@@ -50,6 +51,17 @@ max_scale = 6.0
 
 [node name="Midage" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 42.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(-749, 38)
 process_callback = 0
@@ -62,9 +74,10 @@ max_distance = Vector2(1, 1)
 [node name="RandomSystem" type="Node" parent="."]
 script = ExtResource("2_emgq0")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("score_label")]
 position = Vector2(-749, -722)
 script = ExtResource("3_d4m16")
+score_label = NodePath("../CanvasLayer/Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_uu4jv")
@@ -106,3 +119,10 @@ player = NodePath("../../../Player")
 line = NodePath("..")
 terrain_generator = NodePath("../..")
 decorations = Array[ExtResource("6_o3f1s")]([SubResource("Resource_cnwvw")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+script = ExtResource("10_dwjq4")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
