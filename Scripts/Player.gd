@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var DASH_DURATION: float = 0.5       # Dash duration in seconds
 @export var DASH_COOLDOWN: float = 1.0       # Time between dashes
 @export var score_label: Label
+@export var animated_sprite : AnimatedSprite2D
 
 # Variables
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")  # Sync gravity with project settings
@@ -65,6 +66,14 @@ func _physics_process(delta: float) -> void:
 
 	# Set horizontal movement speed
 	velocity.x = direction.x * SPEED
+	
+	
+	var direction=Input.get_axis("left","right")
+
+	if not is_on_floor():
+		animated_sprite.play("jump")
+	else:
+		animated_sprite.play("walk")
 
 	# Update score
 	score_label.set_text(str(GlobalVariables.last_score + (floori(global_position.x) - floori(start_x)) / GlobalVariables.score_divider))
