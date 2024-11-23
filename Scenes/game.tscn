@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bva6jjs3q5tws"]
+[gd_scene load_steps=23 format=3 uid="uid://bva6jjs3q5tws"]
 
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="1_38dti"]
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_g3w6i"]
@@ -9,7 +9,10 @@
 [ext_resource type="Shader" uid="uid://v27jtucnjeeq" path="res://line.tres" id="4_21xhv"]
 [ext_resource type="Script" path="res://Scripts/decoration.gd" id="4_ygruv"]
 [ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/spike.tscn" id="5_6lv7n"]
+[ext_resource type="PackedScene" uid="uid://cj0n3ymjobgpv" path="res://Scenes/wall_city.tscn" id="10_8cse6"]
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="10_xua8x"]
+[ext_resource type="PackedScene" uid="uid://cg47bhbbhmphx" path="res://Scenes/drone_city.tscn" id="11_4ypa3"]
+[ext_resource type="PackedScene" uid="uid://r1f33hjc7aw7" path="res://Scenes/traffic_lights_city.tscn" id="12_f37ki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
 size = Vector2(64, 64)
@@ -49,6 +52,36 @@ chance_multiplyer = 1
 min_scale = 6.0
 max_scale = 6.0
 
+[sub_resource type="Resource" id="Resource_yakbk"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("10_8cse6")
+spawn_on_center = true
+initial_chance = 100
+chance_to_spawn = 10.0
+chance_multiplyer = 1
+min_scale = 4.0
+max_scale = 6.0
+
+[sub_resource type="Resource" id="Resource_ydy5g"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("11_4ypa3")
+spawn_on_center = false
+initial_chance = 100
+chance_to_spawn = 20.0
+chance_multiplyer = 1
+min_scale = 3.0
+max_scale = 3.0
+
+[sub_resource type="Resource" id="Resource_g4ddf"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("12_f37ki")
+spawn_on_center = true
+initial_chance = 100
+chance_to_spawn = 13.0
+chance_multiplyer = 1
+min_scale = 0.0
+max_scale = 0.0
+
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -62,6 +95,7 @@ offset_bottom = 69.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(-181, 52)
@@ -126,7 +160,7 @@ sloper = NodePath("../Sloper")
 player = NodePath("../../Player")
 line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
-decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_cnwvw")])
+decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_cnwvw"), SubResource("Resource_yakbk"), SubResource("Resource_ydy5g"), SubResource("Resource_g4ddf")])
 
 [node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
 wait_time = 30.0
