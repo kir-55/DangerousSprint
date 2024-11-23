@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/sloper.gd" id="1_pfyk3"]
 [ext_resource type="Script" path="res://Scripts/decoration_spawner.gd" id="2_mltma"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/terrain_generator.gd" id="2_redno"]
-[ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/flower.tscn" id="3_t801l"]
+[ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/spikes.tscn" id="3_t801l"]
 [ext_resource type="Shader" uid="uid://v27jtucnjeeq" path="res://line.tres" id="4_21xhv"]
 [ext_resource type="Script" path="res://Scripts/decoration.gd" id="4_ygruv"]
 
@@ -42,8 +42,8 @@ shader_parameter/MaxThikness = 3000.0
 script = ExtResource("4_ygruv")
 prefab = ExtResource("3_t801l")
 spawn_on_center = true
-initial_chance = 100
-chance_to_spawn = 20.0
+initial_chance = 90
+chance_to_spawn = 10.0
 chance_multiplyer = 1
 min_scale = 6.0
 max_scale = 6.0
@@ -52,9 +52,12 @@ max_scale = 6.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(-749, 38)
+process_callback = 0
+position_smoothing_enabled = true
 script = ExtResource("1_g3w6i")
-speed = 3.0
+speed = 30.0
 target = NodePath("../Player")
+max_distance = Vector2(1, 1)
 
 [node name="RandomSystem" type="Node" parent="."]
 script = ExtResource("1_38dti")
