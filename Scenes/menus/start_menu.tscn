@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://daai0thrp4xay"]
+[gd_scene load_steps=12 format=3 uid="uid://daai0thrp4xay"]
 
 [ext_resource type="Script" path="res://Scripts/menus/game_over_menu.gd" id="1_yv4ht"]
+[ext_resource type="AudioStream" uid="uid://b68n6d1ersh7e" path="res://music/lobby.mp3" id="2_lcuww"]
 
 [sub_resource type="Gradient" id="Gradient_848mm"]
 
@@ -66,9 +67,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dfoim")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
-offset_top = -0.485375
+offset_top = 91.736
 offset_right = 552.0
-offset_bottom = 474.515
+offset_bottom = 386.736
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
@@ -81,7 +82,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "Witaj w Time Sprint"
+text = "Unstable"
 horizontal_alignment = 1
 
 [node name="Margin2" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
@@ -94,12 +95,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_7j6wq")
-text = "Zagraj w grę!"
-
-[node name="Margin" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+text = "Graj"
 
 [node name="Exit" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -108,6 +104,10 @@ size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_abjer")
 text = "Wyjdź z gry"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lcuww")
+autoplay = true
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Again" to="." method="_on_again_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

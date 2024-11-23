@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlhbq1n76mmo0"]
 
-[ext_resource type="Texture2D" uid="uid://oag3y7rlxdvo" path="res://textures/Arrow.png" id="1_03xlw"]
+[ext_resource type="Texture2D" uid="uid://oag3y7rlxdvo" path="res://textures/Arrow.png" id="1_lm34x"]
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="2_mb1na"]
 [ext_resource type="Script" path="res://Scenes/deadly_area.gd" id="2_wcbvn"]
 
@@ -11,7 +11,7 @@ size = Vector2(6.00001, 18.3333)
 z_index = 5
 position = Vector2(0, 333)
 scale = Vector2(6, 6)
-texture = ExtResource("1_03xlw")
+texture = ExtResource("1_lm34x")
 offset = Vector2(-0.500285, -84.6667)
 script = ExtResource("2_mb1na")
 

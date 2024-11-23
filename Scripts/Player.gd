@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle dashing
 	if is_dashing:
+
 		velocity.y = 0
 		dash_timer -= delta
 		if dash_timer <= 0:
@@ -84,6 +85,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func start_dash() -> void:
+	scale.y = scale.y/2
 	# Start the dash by increasing the speed and setting timers
 	is_dashing = true
 	dash_timer = DASH_DURATION
@@ -93,6 +95,7 @@ func start_dash() -> void:
 	velocity.y = 0
 
 func end_dash() -> void:
+	scale.y *= 2
 	# End the dash and restore the original speed
 	is_dashing = false
 	SPEED = original_speed

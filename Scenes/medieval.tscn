@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://caupmfpqwlmdt"]
+[gd_scene load_steps=23 format=3 uid="uid://caupmfpqwlmdt"]
 
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_qfj4m"]
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="2_voxu0"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ggstijougtq" path="res://Scenes/house2_med.tscn" id="12_q670x"]
 [ext_resource type="PackedScene" uid="uid://bhld3hgqh3vsh" path="res://Scenes/house3_med.tscn" id="13_kqulp"]
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="15_rfpng"]
+[ext_resource type="AudioStream" uid="uid://cnpku2tfc3iip" path="res://music/sredniowiecze.mp3" id="16_08j3k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53rot"]
 shader = ExtResource("6_51kem")
@@ -166,6 +167,10 @@ autostart = true
 script = ExtResource("15_rfpng")
 player = NodePath("../Player")
 current_world = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_08j3k")
+autoplay = true
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
