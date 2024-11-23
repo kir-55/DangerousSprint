@@ -9,10 +9,10 @@ size = Vector2(12, 8.97917)
 
 [node name="Drone City" type="Sprite2D"]
 z_index = -1
-position = Vector2(5, -137)
+position = Vector2(1, -115)
 scale = Vector2(6, 6)
 texture = ExtResource("1_r5yel")
-offset = Vector2(-0.833619, -28.6666)
+offset = Vector2(-0.166952, -32.3333)
 script = ExtResource("2_s4rpb")
 max_angle = 50.0
 
@@ -21,7 +21,7 @@ position = Vector2(-1.33333, -27)
 script = ExtResource("3_nnjgb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.666667, 1.84378)
+position = Vector2(1.5, -2.33333)
 shape = SubResource("RectangleShape2D_1iamu")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

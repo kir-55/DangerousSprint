@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://bh2l45rd6upik"]
+[gd_scene load_steps=22 format=3 uid="uid://bh2l45rd6upik"]
 
+[ext_resource type="Environment" uid="uid://d11xgpobgk0rd" path="res://new_environment.tres" id="1_pw3af"]
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_x54wi"]
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="2_sjffl"]
 [ext_resource type="PackedScene" uid="uid://bty2oxq2nwcn6" path="res://textures/player.tscn" id="3_1apsn"]
@@ -14,6 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://dm85340u4k466" path="res://Scenes/house1_cyberpunk.tscn" id="13_vpbf7"]
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="15_bclfa"]
 
+[sub_resource type="Gradient" id="Gradient_bnu6x"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.331606)
+colors = PackedColorArray(0.192435, 0.0882293, 0.235833, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udxwv"]
+gradient = SubResource("Gradient_bnu6x")
+fill = 1
+fill_from = Vector2(0.517094, 0.457265)
+fill_to = Vector2(0.876068, 0.884615)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53rot"]
 shader = ExtResource("6_38bwd")
 shader_parameter/XShiftAmplitude = null
@@ -25,7 +37,7 @@ script = ExtResource("9_gysyr")
 prefab = ExtResource("8_y63qt")
 spawn_on_center = true
 initial_chance = 100
-chance_to_spawn = 20.0
+chance_to_spawn = 50.0
 chance_multiplyer = 1
 min_scale = 10.0
 max_scale = 10.0
@@ -62,6 +74,9 @@ max_scale = 0.0
 
 [node name="Future" type="Node2D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_pw3af")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
@@ -83,6 +98,12 @@ script = ExtResource("1_x54wi")
 speed = 30.0
 target = NodePath("../Player")
 max_distance = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = -20
+position = Vector2(19, 82)
+scale = Vector2(47.6694, 21.0109)
+texture = SubResource("GradientTexture2D_udxwv")
 
 [node name="RandomSystem" type="Node" parent="."]
 script = ExtResource("2_sjffl")
@@ -127,6 +148,7 @@ default_color = Color(0.136314, 0.147722, 0.138661, 1)
 [node name="StaticBody2D" type="StaticBody2D" parent="TerrainGenerator/Line2D2"]
 
 [node name="DecorationSpawner" type="Node2D" parent="TerrainGenerator" node_paths=PackedStringArray("rs", "sloper", "player", "line", "terrain_generator")]
+position = Vector2(-4, 0)
 scale = Vector2(1.10038, 1.15793)
 script = ExtResource("7_w4n6f")
 load_radius = 3

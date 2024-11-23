@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cv65jnoi1cdpj"]
 
-[ext_resource type="Texture2D" uid="uid://ccepwmremjvqx" path="res://Plazma_z_przyszosci.png" id="1_bf6ec"]
+[ext_resource type="Texture2D" uid="uid://ccepwmremjvqx" path="res://textures/Plazma_z_przyszosci.png" id="1_kukfy"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/smart_decoration.gd" id="2_pki2u"]
 [ext_resource type="Script" path="res://Scenes/deadly_area.gd" id="3_srb0o"]
 
@@ -11,7 +11,7 @@ size = Vector2(15.6667, 2)
 z_index = 5
 position = Vector2(-1, -65)
 scale = Vector2(6, 6)
-texture = ExtResource("1_bf6ec")
+texture = ExtResource("1_kukfy")
 offset = Vector2(0.166381, 2.66666)
 script = ExtResource("2_pki2u")
 max_angle = 50.0

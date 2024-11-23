@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccepwmremjvqx"
-path="res://.godot/imported/Plazma_z_przyszosci.png-b8fe05d2135fce3d8233a7211f92490b.ctex"
+uid="uid://bravuad5e8urb"
+path="res://.godot/imported/cyber2.png-c8a17646171d1c95dae82227f59bd60f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Plazma_z_przyszosci.png"
-dest_files=["res://.godot/imported/Plazma_z_przyszosci.png-b8fe05d2135fce3d8233a7211f92490b.ctex"]
+source_file="res://textures/cyber2.png"
+dest_files=["res://.godot/imported/cyber2.png-c8a17646171d1c95dae82227f59bd60f.ctex"]
 
 [params]
 

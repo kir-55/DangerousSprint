@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var DROP_THROUGH_VELOCITY: float = 700  # Downward drop velocity (controlled fall)
 @export var DASH_SPEED_BOOST: float = 400.0  # Speed boost for dash
 @export var DASH_DURATION: float = 0.5       # Dash duration in seconds
-@export var DASH_COOLDOWN: float = 1.0       # Time between dashes
+@export var DASH_COOLDOWN: float = 0.4      # Time between dashes
 @export var score_label: Label
 @export var animated_sprite : AnimatedSprite2D
 
