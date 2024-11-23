@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mugbwvqordti"
-path="res://.godot/imported/dirt.png-8f3447f5703c4d1ffe16a06c7c96ba03.ctex"
+uid="uid://calimuwrdtpyp"
+path="res://.godot/imported/U.F.O..png-52e974c0277ecd35c8fd64334cdf7e83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/dirt.png"
-dest_files=["res://.godot/imported/dirt.png-8f3447f5703c4d1ffe16a06c7c96ba03.ctex"]
+source_file="res://textures/U.F.O..png"
+dest_files=["res://.godot/imported/U.F.O..png-52e974c0277ecd35c8fd64334cdf7e83.ctex"]
 
 [params]
 

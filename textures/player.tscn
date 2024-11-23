@@ -19,6 +19,7 @@ metadata/_snap_enabled = true
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-185, 114)
 script = ExtResource("1_72mo5")
+MAX_JUMP_VEL = -1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uu4jv")

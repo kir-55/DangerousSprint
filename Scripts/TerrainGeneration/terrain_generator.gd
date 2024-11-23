@@ -27,8 +27,6 @@ extends Node
 
 @onready var line_offset = grass_line.width / 2 - 1
 
-
-
 func _ready():
 	for decoration in decorations:
 		print(decoration.chance_to_spawn)

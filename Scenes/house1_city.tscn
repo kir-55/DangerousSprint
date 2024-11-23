@@ -6,9 +6,9 @@
 [node name="House 1 City" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0.8)
 z_index = -2
-position = Vector2(0, -11)
+position = Vector2(0, -5)
 scale = Vector2(6, 6)
 texture = ExtResource("1_le1eg")
-offset = Vector2(0.499714, -41.6667)
+offset = Vector2(0.499714, -42.6667)
 script = ExtResource("2_pcu7o")
 max_angle = 50.0

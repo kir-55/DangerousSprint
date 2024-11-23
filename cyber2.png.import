@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dugb5qgqgwoe3"
-path="res://.godot/imported/player-stand.png-4205ac2559e1da8b30887fa0a466a3df.ctex"
+uid="uid://bravuad5e8urb"
+path="res://.godot/imported/cyber2.png-462a6880a4011c742e19d52f8e8c2f09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/player-stand.png"
-dest_files=["res://.godot/imported/player-stand.png-4205ac2559e1da8b30887fa0a466a3df.ctex"]
+source_file="res://cyber2.png"
+dest_files=["res://.godot/imported/cyber2.png-462a6880a4011c742e19d52f8e8c2f09.ctex"]
 
 [params]
 

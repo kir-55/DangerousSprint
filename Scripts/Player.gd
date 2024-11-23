@@ -22,6 +22,7 @@ var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
 var original_speed: float = SPEED
 
+
 func _ready():
 	start_x = global_position.x
 	if GlobalVariables.player_global_speed:
@@ -41,6 +42,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle dashing
 	if is_dashing:
+		velocity.y = 0
 		dash_timer -= delta
 		if dash_timer <= 0:
 			end_dash()
@@ -79,6 +81,7 @@ func start_dash() -> void:
 	dash_cooldown_timer = DASH_COOLDOWN
 	original_speed = SPEED  # Store the original speed
 	SPEED += DASH_SPEED_BOOST
+	velocity.y = 0
 
 func end_dash() -> void:
 	# End the dash and restore the original speed

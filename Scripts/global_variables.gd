@@ -8,12 +8,12 @@ var score_divider: int = 12
 
 enum LEVELS {
 		START,
-		MIDAGE
+		FUTURE,
 	}
 
 var levels = { 
 	LEVELS.START : preload("res://Scenes/game.tscn"),
-	LEVELS.MIDAGE : preload("res://Scenes/midage.tscn")
+	LEVELS.FUTURE : preload("res://Scenes/future.tscn")
 }
 
 func change_level(new_level):

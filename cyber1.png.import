@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd4op3yvldxp1"
-path="res://.godot/imported/lava-under.png-157cc38d3d2c67491e305fdd5591a268.ctex"
+uid="uid://cf4nuq84o1vlw"
+path="res://.godot/imported/cyber1.png-fe8167abc7cd7ba755605ac046631462.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/lava-under.png"
-dest_files=["res://.godot/imported/lava-under.png-157cc38d3d2c67491e305fdd5591a268.ctex"]
+source_file="res://cyber1.png"
+dest_files=["res://.godot/imported/cyber1.png-fe8167abc7cd7ba755605ac046631462.ctex"]
 
 [params]
 
