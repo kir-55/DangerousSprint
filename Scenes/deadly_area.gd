@@ -4,7 +4,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		var last_score = body.score
+		var last_score = GlobalVariables.last_score 
 		var best_score = GlobalVariables.best_score
 		if best_score and last_score > best_score:
 			GlobalVariables.last_score = last_score

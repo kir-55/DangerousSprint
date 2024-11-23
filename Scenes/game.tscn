@@ -43,8 +43,8 @@ shader_parameter/MaxThikness = 3000.0
 script = ExtResource("4_ygruv")
 prefab = ExtResource("3_t801l")
 spawn_on_center = true
-initial_chance = 90
-chance_to_spawn = 10.0
+initial_chance = 100
+chance_to_spawn = 20.0
 chance_multiplyer = 1
 min_scale = 6.0
 max_scale = 6.0
@@ -75,8 +75,9 @@ max_distance = Vector2(1, 1)
 script = ExtResource("1_38dti")
 
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("score_label")]
-position = Vector2(-749, -722)
+position = Vector2(-185, 114)
 script = ExtResource("1_h16cp")
+JUMP_VELOCITY = -700.0
 score_label = NodePath("../CanvasLayer/Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -93,7 +94,7 @@ floor_collider = NodePath("Line2D/StaticBody2D")
 rs = NodePath("../RandomSystem")
 sloper = NodePath("Sloper")
 points_amount = 1
-line_section_length = 200
+line_section_length = 500
 section_y_change_amplitude = 50
 decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_m7sui")])
 player = NodePath("../Player")
@@ -119,9 +120,10 @@ line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
 decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_cnwvw")])
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
 wait_time = 30.0
 autostart = true
 script = ExtResource("10_xua8x")
+player = NodePath("../Player")
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
