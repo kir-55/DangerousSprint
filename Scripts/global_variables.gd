@@ -1,8 +1,8 @@
 extends Node
 
 var player_global_speed : float
-var best_score : int
-var last_score : int
+var best_score : int = 0
+var last_score : int = 0
 
 enum LEVELS {
 		START,
