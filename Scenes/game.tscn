@@ -161,10 +161,6 @@ line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
 decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_yck0j"), SubResource("Resource_g4ddf"), SubResource("Resource_o104x"), SubResource("Resource_px5pj"), SubResource("Resource_blmxp"), SubResource("Resource_a0x5q")])
 
-[node name="StartSpawn" type="Timer" parent="TerrainGenerator/DecorationSpawner"]
-one_shot = true
-autostart = true
-
 [node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
 wait_time = 5.0
 autostart = true
@@ -178,5 +174,4 @@ stream = ExtResource("16_5h54n")
 autoplay = true
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
-[connection signal="timeout" from="TerrainGenerator/DecorationSpawner/StartSpawn" to="TerrainGenerator/DecorationSpawner" method="_on_start_spawn_timeout"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
