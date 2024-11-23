@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj0n3ymjobgpv"]
+
+[ext_resource type="Texture2D" uid="uid://dakyyk5dh86ig" path="res://textures/hay_bale.png" id="1_ft0du"]
+[ext_resource type="Script" path="res://Scripts/TerrainGeneration/smart_decoration.gd" id="2_yfw61"]
+[ext_resource type="Script" path="res://Scripts/health_system.gd" id="3_7qnbl"]
+[ext_resource type="Script" path="res://Scenes/deadly_area.gd" id="3_n2k0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3ok3"]
+size = Vector2(31.0003, 12.8926)
+
+[node name="Wall City" type="Sprite2D"]
+z_index = -1
+position = Vector2(-3, -7.09583)
+scale = Vector2(-7.24583, 8.55556)
+texture = ExtResource("1_ft0du")
+offset = Vector2(-0.0231149, -8.00103)
+script = ExtResource("2_yfw61")
+max_angle = 50.0
+
+[node name="hay_bale1" type="Sprite2D" parent="."]
+position = Vector2(-0.114922, -23.9657)
+texture = ExtResource("1_ft0du")
+
+[node name="hay_bale2" type="Sprite2D" parent="."]
+position = Vector2(-0.114922, -40.0267)
+texture = ExtResource("1_ft0du")
+
+[node name="hay_bale3" type="Sprite2D" parent="."]
+position = Vector2(-0.114922, -40.0267)
+texture = ExtResource("1_ft0du")
+
+[node name="hay_bale4" type="Sprite2D" parent="."]
+position = Vector2(-14.71, -8.01948)
+skew = 0.0890118
+texture = ExtResource("1_ft0du")
+
+[node name="Health System" type="Node" parent="."]
+script = ExtResource("3_7qnbl")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8.25422)
+scale = Vector2(1.03148, 3.80849)
+script = ExtResource("3_n2k0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7.22845, -4.12548)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_i3ok3")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
