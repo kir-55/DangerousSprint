@@ -4,6 +4,8 @@ var player_global_speed : float
 var best_score : int = 0
 var last_score : int = 0
 
+var score_divider: int = 12
+
 enum LEVELS {
 		START,
 		MIDAGE

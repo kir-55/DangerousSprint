@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://Scripts/sloper.gd" id="1_pfyk3"]
 [ext_resource type="Script" path="res://Scripts/decoration_spawner.gd" id="2_mltma"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/terrain_generator.gd" id="2_redno"]
-[ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/spikes.tscn" id="3_t801l"]
 [ext_resource type="Shader" uid="uid://v27jtucnjeeq" path="res://line.tres" id="4_21xhv"]
 [ext_resource type="Script" path="res://Scripts/decoration.gd" id="4_ygruv"]
+[ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/spike.tscn" id="5_6lv7n"]
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="10_xua8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
@@ -25,7 +25,7 @@ metadata/_snap_enabled = true
 
 [sub_resource type="Resource" id="Resource_m7sui"]
 script = ExtResource("4_ygruv")
-prefab = ExtResource("3_t801l")
+prefab = ExtResource("5_6lv7n")
 spawn_on_center = true
 initial_chance = 100
 chance_to_spawn = 20.0
@@ -41,7 +41,7 @@ shader_parameter/MaxThikness = 3000.0
 
 [sub_resource type="Resource" id="Resource_cnwvw"]
 script = ExtResource("4_ygruv")
-prefab = ExtResource("3_t801l")
+prefab = ExtResource("5_6lv7n")
 spawn_on_center = true
 initial_chance = 100
 chance_to_spawn = 20.0
@@ -64,7 +64,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(-749, 38)
+position = Vector2(-181, 52)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("1_g3w6i")
@@ -87,11 +87,12 @@ shape = SubResource("RectangleShape2D_uu4jv")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = SubResource("GradientTexture2D_1lf8x")
 
-[node name="TerrainGenerator" type="Node2D" parent="." node_paths=PackedStringArray("ground_line", "floor_collider", "rs", "sloper", "player")]
+[node name="TerrainGenerator" type="Node2D" parent="." node_paths=PackedStringArray("ground_line", "grass_line", "floor_collider", "rs", "sloper", "player")]
 position = Vector2(-758, 278)
 script = ExtResource("2_redno")
 ground_line = NodePath("Line2D")
-floor_collider = NodePath("Line2D/StaticBody2D")
+grass_line = NodePath("Line2D2")
+floor_collider = NodePath("Line2D2/StaticBody2D")
 rs = NodePath("../RandomSystem")
 sloper = NodePath("Sloper")
 points_amount = 1
@@ -107,8 +108,14 @@ terrain_generator = NodePath("..")
 
 [node name="Line2D" type="Line2D" parent="TerrainGenerator"]
 material = SubResource("ShaderMaterial_53rot")
+position = Vector2(0, 18)
+default_color = Color(0.581895, 0.397161, 0.114336, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TerrainGenerator/Line2D"]
+[node name="Line2D2" type="Line2D" parent="TerrainGenerator"]
+width = 30.0
+default_color = Color(0.395763, 0.419923, 0.400711, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TerrainGenerator/Line2D2"]
 
 [node name="DecorationSpawner" type="Node2D" parent="TerrainGenerator" node_paths=PackedStringArray("rs", "sloper", "player", "line", "terrain_generator")]
 script = ExtResource("2_mltma")

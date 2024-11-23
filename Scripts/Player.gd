@@ -12,7 +12,6 @@ extends CharacterBody2D
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")  # Sync gravity with project settings
 var direction: Vector2 = Vector2.ZERO  # Movement direction
 var start_x
-var score
 
 func _ready():
 	start_x = global_position.x
@@ -44,9 +43,8 @@ func _physics_process(delta: float) -> void:
 
 	# Set horizontal movement speed
 	velocity.x = direction.x * SPEED
-	
-	score = abs(floori(global_position.x) - floori(start_x)) / 12
-	score_label.set_text(str(score))
+
+	score_label.set_text(str(GlobalVariables.last_score + (floori(global_position.x) - floori(start_x)) / GlobalVariables.score_divider))
 
 	# Move the character
 	move_and_slide()
