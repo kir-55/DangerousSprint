@@ -7,8 +7,7 @@ extends Node
 var player: Node2D
 
 func take_damage(value):
-	if health - value > 0:
-		health -= value
-	else:
-		health = 0
+	health -= value
+	if health <= 0:
+		print("damage")
 		get_parent().queue_free()

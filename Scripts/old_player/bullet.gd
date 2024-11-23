@@ -11,14 +11,13 @@ func set_velocity(direction: Vector2) -> void:
 	# Set the bullet's velocity in a specific direction
 	velocity = direction.normalized() * speed
 
-func _on_body_entered(body: Node) -> void:
-	# Handle collisions with other objects
+func _on_area_entered(body: Node) -> void:
+	if body and body.get_parent() and body.get_parent().get_node("HealthSystem"):
+		body.get_parent().get_node("HealthSystem").take_damage(40) 
 	queue_free()  # Destroy the bullet upon collision
-	
-	# Optional: Damage the object if it has a "take_damage" method
-	if body.has_method("take_damage"):
-		body.take_damage(10)  # Example: Apply 10 damage
 
-func _on_timer_timeout():
-	# Destroy the bullet after the timer expires
-	queue_free()
+	 # Example: Apply 10 damage
+
+
+func _on_body_entered(body):
+	queue_free()  # D

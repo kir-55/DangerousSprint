@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj0x15bw6lcol"]
+[gd_scene load_steps=5 format=3 uid="uid://dfr7px42lef2e"]
 
 [ext_resource type="Texture2D" uid="uid://ct83i5x5sons3" path="res://textures/spikes.png" id="1_l2lbw"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/smart_decoration.gd" id="2_upypm"]

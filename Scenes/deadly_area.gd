@@ -10,6 +10,6 @@ func _on_body_entered(body):
 			GlobalVariables.best_score = last_score
 			
 		GlobalVariables.last_score = last_score
-		
+		print("name: "  + get_parent().name)
 		GlobalVariables.player_global_speed = 0
 		get_tree().change_scene_to_file("res://Scenes/menus/game_over_menu.tscn")

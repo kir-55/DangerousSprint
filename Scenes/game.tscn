@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=29 format=3 uid="uid://bva6jjs3q5tws"]
-
+[gd_scene load_steps=23 format=3 uid="uid://bva6jjs3q5tws"]
 
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="1_38dti"]
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_g3w6i"]
@@ -10,28 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://bty2oxq2nwcn6" path="res://textures/player.tscn" id="3_wxxgn"]
 [ext_resource type="Shader" uid="uid://v27jtucnjeeq" path="res://line.tres" id="4_21xhv"]
 [ext_resource type="Script" path="res://Scripts/decoration.gd" id="4_ygruv"]
-[ext_resource type="PackedScene" uid="uid://d3d05t20i0h0r" path="res://Scenes/spike.tscn" id="5_6lv7n"]
-
 [ext_resource type="PackedScene" uid="uid://spdye7fmeaws" path="res://Scenes/car.tscn" id="10_krgj7"]
-
-[ext_resource type="PackedScene" uid="uid://cj0n3ymjobgpv" path="res://Scenes/wall_city.tscn" id="10_8cse6"]
-
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="10_xua8x"]
-[ext_resource type="PackedScene" uid="uid://cg47bhbbhmphx" path="res://Scenes/drone_city.tscn" id="11_4ypa3"]
 [ext_resource type="PackedScene" uid="uid://r1f33hjc7aw7" path="res://Scenes/traffic_lights_city.tscn" id="12_f37ki"]
 [ext_resource type="PackedScene" uid="uid://hqspj08hycbj" path="res://Scenes/house1_city.tscn" id="13_dqrb1"]
 [ext_resource type="PackedScene" uid="uid://cd4pgi5mckdsk" path="res://Scenes/house2_city.tscn" id="14_1d5qc"]
+[ext_resource type="PackedScene" uid="uid://cg47bhbbhmphx" path="res://Scenes/drone_city.tscn" id="14_gsk4m"]
 [ext_resource type="PackedScene" uid="uid://cy3ygjy30f1t2" path="res://Scenes/house3_city.tscn" id="15_l43rq"]
-
-[sub_resource type="Resource" id="Resource_m7sui"]
-script = ExtResource("4_ygruv")
-prefab = ExtResource("5_6lv7n")
-spawn_on_center = true
-initial_chance = 100
-chance_to_spawn = 20.0
-chance_multiplyer = 1
-min_scale = 6.0
-max_scale = 6.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53rot"]
 shader = ExtResource("4_21xhv")
@@ -42,32 +25,12 @@ shader_parameter/MaxThikness = 3000.0
 [sub_resource type="Resource" id="Resource_yck0j"]
 script = ExtResource("4_ygruv")
 prefab = ExtResource("10_krgj7")
-spawn_on_center = false
-initial_chance = 100
-chance_to_spawn = 40.0
-chance_multiplyer = 1
-min_scale = 10.0
-max_scale = 20.0
-
-[sub_resource type="Resource" id="Resource_yakbk"]
-script = ExtResource("4_ygruv")
-prefab = ExtResource("10_8cse6")
 spawn_on_center = true
-initial_chance = 100
-chance_to_spawn = 10.0
-chance_multiplyer = 1
-min_scale = 4.0
-max_scale = 6.0
-
-[sub_resource type="Resource" id="Resource_ydy5g"]
-script = ExtResource("4_ygruv")
-prefab = ExtResource("11_4ypa3")
-spawn_on_center = false
 initial_chance = 100
 chance_to_spawn = 20.0
 chance_multiplyer = 1
-min_scale = 3.0
-max_scale = 3.0
+min_scale = 5.0
+max_scale = 6.0
 
 [sub_resource type="Resource" id="Resource_g4ddf"]
 script = ExtResource("4_ygruv")
@@ -109,6 +72,16 @@ chance_multiplyer = 1
 min_scale = 0.0
 max_scale = 0.0
 
+[sub_resource type="Resource" id="Resource_a0x5q"]
+script = ExtResource("4_ygruv")
+prefab = ExtResource("14_gsk4m")
+spawn_on_center = false
+initial_chance = 100
+chance_to_spawn = 10.0
+chance_multiplyer = 1
+min_scale = 2.0
+max_scale = 3.0
+
 [node name="Game" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -137,7 +110,6 @@ max_distance = Vector2(1, 1)
 script = ExtResource("1_38dti")
 
 [node name="Player" parent="." node_paths=PackedStringArray("score_label") instance=ExtResource("3_wxxgn")]
-JUMP_VELOCITY = -500.0
 DASH_SPEED_BOOST = 600.0
 DASH_DURATION = 0.2
 DASH_COOLDOWN = 1.4
@@ -158,7 +130,6 @@ rs = NodePath("../RandomSystem")
 sloper = NodePath("Sloper")
 line_section_length = 500
 section_y_change_amplitude = 50
-decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_m7sui")])
 player = NodePath("../Player")
 
 [node name="Sloper" type="Node" parent="TerrainGenerator" node_paths=PackedStringArray("line", "terrain_generator")]
@@ -187,14 +158,13 @@ sloper = NodePath("../Sloper")
 player = NodePath("../../Player")
 line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
+decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_yck0j"), SubResource("Resource_g4ddf"), SubResource("Resource_o104x"), SubResource("Resource_px5pj"), SubResource("Resource_blmxp"), SubResource("Resource_a0x5q")])
 
-decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_yck0j"), SubResource("Resource_yakbk"), SubResource("Resource_ydy5g"), SubResource("Resource_g4ddf"), SubResource("Resource_o104x"), SubResource("Resource_px5pj"), SubResource("Resource_blmxp")])
-
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+[node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
+wait_time = 15.0
 autostart = true
 script = ExtResource("10_xua8x")
+player = NodePath("../Player")
 
 [node name="Line2D" type="Line2D" parent="."]
 
