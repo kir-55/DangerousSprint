@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bty2oxq2nwcn6"]
+[gd_scene load_steps=7 format=3 uid="uid://bty2oxq2nwcn6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_72mo5"]
+[ext_resource type="Script" path="res://Scripts/old_player/weapon.gd" id="2_ndjry"]
+[ext_resource type="PackedScene" uid="uid://buxptejpeo6y3" path="res://Scripts/old_player/bullet.tscn" id="3_c275e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
 size = Vector2(64, 64)
@@ -14,14 +16,24 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("score_label")]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(-185, 114)
 script = ExtResource("1_72mo5")
-JUMP_VELOCITY = -700.0
-score_label = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uu4jv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_1lf8x")
+
+[node name="Weapon" type="Sprite2D" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("2_ndjry")
+bullet_scene = ExtResource("3_c275e")
+bullet_speed = 2000.0
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Weapon"]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Weapon/Timer" to="Weapon" method="_on_timer_timeout"]

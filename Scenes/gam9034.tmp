@@ -65,16 +65,10 @@ max_distance = Vector2(1, 1)
 script = ExtResource("1_38dti")
 
 [node name="Player" parent="." node_paths=PackedStringArray("score_label") instance=ExtResource("3_wxxgn")]
-JUMP_VELOCITY = -500.0
-DASH_SPEED_BOOST = 600.0
-DASH_DURATION = 0.2
-DASH_COOLDOWN = 1.4
 score_label = NodePath("../CanvasLayer/Label")
 
 [node name="Timer" type="Timer" parent="Player"]
 autostart = true
-
-[node name="Line2D" type="Line2D" parent="Player"]
 
 [node name="TerrainGenerator" type="Node2D" parent="." node_paths=PackedStringArray("ground_line", "grass_line", "floor_collider", "rs", "sloper", "player")]
 position = Vector2(-758, 278)
@@ -120,8 +114,6 @@ decorations = Array[ExtResource("4_ygruv")]([SubResource("Resource_yck0j")])
 wait_time = 30.0
 autostart = true
 script = ExtResource("10_xua8x")
-
-[node name="Line2D" type="Line2D" parent="."]
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

@@ -65,11 +65,9 @@ max_distance = Vector2(1, 1)
 [node name="RandomSystem" type="Node" parent="."]
 script = ExtResource("2_emgq0")
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("score_label")]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-300, 109)
 script = ExtResource("3_d4m16")
-JUMP_VELOCITY = -700.0
-score_label = NodePath("../CanvasLayer/Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_uu4jv")
