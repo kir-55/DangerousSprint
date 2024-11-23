@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://caupmfpqwlmdt"]
+[gd_scene load_steps=22 format=3 uid="uid://caupmfpqwlmdt"]
 
 [ext_resource type="Script" path="res://Scripts/сamera.gd" id="1_qfj4m"]
 [ext_resource type="Script" path="res://Scripts/random_system.gd" id="2_voxu0"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://q0a03p4jso3a" path="res://Scenes/house1_med.tscn" id="11_dlmlf"]
 [ext_resource type="PackedScene" uid="uid://b0ggstijougtq" path="res://Scenes/house2_med.tscn" id="12_q670x"]
 [ext_resource type="PackedScene" uid="uid://bhld3hgqh3vsh" path="res://Scenes/house3_med.tscn" id="13_kqulp"]
+[ext_resource type="Script" path="res://Scenes/change_scene.gd" id="15_rfpng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53rot"]
 shader = ExtResource("6_51kem")
@@ -157,10 +158,14 @@ line = NodePath("../Line2D")
 terrain_generator = NodePath("..")
 decorations = Array[ExtResource("9_y0pu7")]([SubResource("Resource_7ld4r"), SubResource("Resource_qyi53"), SubResource("Resource_44b66"), SubResource("Resource_tbkt1"), SubResource("Resource_eppxr")])
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
-
 [node name="Line2D" type="Line2D" parent="."]
 
+[node name="Timer" type="Timer" parent="." node_paths=PackedStringArray("player")]
+wait_time = 15.0
+autostart = true
+script = ExtResource("15_rfpng")
+player = NodePath("../Player")
+current_world = 2
+
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
