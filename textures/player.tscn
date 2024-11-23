@@ -1,31 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://bty2oxq2nwcn6"]
+[gd_scene load_steps=10 format=3 uid="uid://bty2oxq2nwcn6"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_72mo5"]
 [ext_resource type="Script" path="res://Scripts/old_player/weapon.gd" id="2_ndjry"]
 [ext_resource type="PackedScene" uid="uid://buxptejpeo6y3" path="res://Scripts/old_player/bullet.tscn" id="3_c275e"]
+[ext_resource type="Texture2D" uid="uid://c0acdo4jb8wcx" path="res://textures/player/skok.png" id="4_3bem1"]
+[ext_resource type="Texture2D" uid="uid://cxh42mcxdryb5" path="res://textures/player/stoi.png" id="5_fas46"]
+[ext_resource type="Texture2D" uid="uid://b53gkq67jnwww" path="res://textures/player/uniesionaprzzed1.png" id="6_dd8yy"]
+[ext_resource type="Texture2D" uid="uid://cspxs10ugo7o2" path="res://textures/player/prawieladuj1.png" id="7_fmc6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu4jv"]
-size = Vector2(64, 64)
+size = Vector2(34, 58)
 
-[sub_resource type="Gradient" id="Gradient_cp0fc"]
-interpolation_mode = 2
+[sub_resource type="SpriteFrames" id="SpriteFrames_ob57i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3bem1")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fas46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dd8yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fas46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fmc6k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 13.0
+}]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_1lf8x"]
-gradient = SubResource("Gradient_cp0fc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animated_sprite")]
 position = Vector2(-185, 114)
 script = ExtResource("1_72mo5")
+
 MAX_JUMP_VEL = -1000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_uu4jv")
+animated_sprite = NodePath("AnimatedSprite2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_1lf8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_uu4jv")
 
 [node name="Weapon" type="Sprite2D" parent="." node_paths=PackedStringArray("timer")]
 script = ExtResource("2_ndjry")
@@ -36,5 +61,12 @@ timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="Weapon"]
 wait_time = 0.2
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ob57i")
+animation = &"jump"
+autoplay = "walk"
 
 [connection signal="timeout" from="Weapon/Timer" to="Weapon" method="_on_timer_timeout"]
