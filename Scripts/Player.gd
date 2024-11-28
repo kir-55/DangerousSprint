@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 # Constants
+@export var DOUBLE: float = -1000.0
 @export var SPEED: float = 600.0              # Horizontal movement speed
 @export var MAX_SPEED: float = 1000.0
 @export var JUMP_VELOCITY: float = -500.0     # Jump velocity
@@ -58,10 +59,18 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("up"):
 			velocity.y = JUMP_VELOCITY
 			if SPEED < MAX_SPEED:
-				SPEED += 20
+				SPEED += 10
 				GlobalVariables.player_global_speed = SPEED
 			if JUMP_VELOCITY > MAX_JUMP_VEL:
 				JUMP_VELOCITY -= 5
+	if is_on_floor():
+		if Input.is_action_just_pressed("double"):
+			velocity.y = DOUBLE
+			if SPEED < MAX_SPEED:
+				SPEED += 10
+				GlobalVariables.player_global_speed = SPEED
+			if DOUBLE > MAX_JUMP_VEL:
+				DOUBLE -= 5
 
 	# Handle dropping down
 	if Input.is_action_just_pressed("bottom"):
@@ -70,8 +79,6 @@ func _physics_process(delta: float) -> void:
 	# Set horizontal movement speed
 	velocity.x = direction.x * SPEED
 	
-	
-	var direction=Input.get_axis("left","right")
 
 	if not is_on_floor():
 		animated_sprite.play("jump")

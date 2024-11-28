@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://kxq0jo51lwl4"]
 
-[ext_resource type="Texture2D" uid="uid://calimuwrdtpyp" path="res://textures/U.F.O..png" id="1_2fgo2"]
+[ext_resource type="Texture2D" uid="uid://calimuwrdtpyp" path="res://textures/U.F.O..png" id="1_8qms5"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/smart_decoration.gd" id="2_s4rpb"]
 [ext_resource type="Script" path="res://Scenes/deadly_area.gd" id="3_nnjgb"]
 
@@ -11,7 +11,7 @@ size = Vector2(12, 8.97917)
 z_index = -1
 position = Vector2(2, -86)
 scale = Vector2(6, 6)
-texture = ExtResource("1_2fgo2")
+texture = ExtResource("1_8qms5")
 offset = Vector2(-0.333619, -37.1666)
 script = ExtResource("2_s4rpb")
 max_angle = 50.0

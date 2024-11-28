@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ggstijougtq" path="res://Scenes/house2_med.tscn" id="12_q670x"]
 [ext_resource type="PackedScene" uid="uid://bhld3hgqh3vsh" path="res://Scenes/house3_med.tscn" id="13_kqulp"]
 [ext_resource type="Script" path="res://Scenes/change_scene.gd" id="15_rfpng"]
-[ext_resource type="AudioStream" uid="uid://cnpku2tfc3iip" path="res://music/sredniowiecze.mp3" id="16_08j3k"]
+[ext_resource type="AudioStream" uid="uid://cnpku2tfc3iip" path="res://music/sredniowiecze.mp3" id="16_wkoxg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53rot"]
 shader = ExtResource("6_51kem")
@@ -169,7 +169,7 @@ player = NodePath("../Player")
 current_world = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_08j3k")
+stream = ExtResource("16_wkoxg")
 autoplay = true
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
